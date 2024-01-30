@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please enter a company name.');
             return;
         }
-
-        fetchCompanyDetails(companyName);
+        const companyDetails = { companyName: companyName }; // Creating a JSON object with the company name
+         const company_name=JSON.stringify(companyDetails)
+        fetchCompanyDetails(company_name);
     })
   
     // Function to fetch company details
-    function fetchCompanyDetails(companyName) {
-        fetch(`https://2c21-182-176-157-31.ngrok-free.app/company?companyName=${encodeURIComponent(companyName)}`, {
+    function fetchCompanyDetails(company_name) {
+        fetch(`https://d8e8-182-176-157-31.ngrok-free.app/company?companyName=${encodeURIComponent(company_name)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
